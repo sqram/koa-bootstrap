@@ -1,0 +1,9 @@
+{% if type == 'full' %}
+  {% extends './base.html' %}
+{% endif %}
+
+{% block home %}
+  <div id="home-react"></div>
+
+  <script src="./js/home.bundle.js" defer></script>
+{% endblock %}

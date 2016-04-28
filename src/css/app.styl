@@ -1,0 +1,98 @@
+
+body
+  margin 0
+  padding 0
+  background #f1f1f1
+  font-family arial
+
+
+
+nav
+  background #2d2d2d
+  padding 20px
+  ul
+    margin 0
+    text-align right
+    li
+      margin 0
+      paddig 0
+      list-style none
+      display inline-block
+
+      a
+        color #BABAD8
+        padding 5px 10px
+        text-decoration none
+        &:hover
+          color white
+
+
+
+#content
+  padding 50px
+
+
+
+
+
+
+
+
+
+
+/*** spf progress bar ***/
+$purple = #D6285E
+@-webkit-keyframes pulse {
+   30% { opacity: 0.6; }
+   60% { opacity: 0; }
+  100% { opacity: 0.6; }
+}
+@keyframes pulse {
+   30% { opacity: 0.6; }
+   60% { opacity: 0; }
+  100% { opacity: 0.6; }
+}
+
+#progress {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: -6px;
+  width: 0%;
+  height: 2px;
+  background: alpha($purple, 0.6)
+  border-radius: 1px;
+  /* the following transition times are overridden by JS */
+  -webkit-transition: width 150ms ease-out;
+  transition: width 150ms ease-out;
+}
+#progress.done {
+  opacity: 0;
+}
+
+#progress dd,
+#progress dt {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  box-shadow: #D81A91 1px 0 6px 1px;
+  border-radius: 100%;
+}
+#progress dd {
+  opacity: 0.6;
+  width: 20px;
+  right: 0;
+  clip: rect(-6px, 22px, 14px, 10px);
+}
+#progress dt {
+  opacity: 0.6;
+  width: 180px;
+  right: -80px;
+  clip: rect(-6px, 90px, 14px, -6px);
+}
+
+#progress.waiting dd,
+#progress.waiting dt {
+  -webkit-animation: pulse 2s ease-out 0s infinite;
+  animation: pulse 2s ease-out 0s infinite;
+}
